@@ -39,8 +39,8 @@ app.post('/books', (req, res) => {
 })
 
 // Delete book
-app.delete('/delete', (req, res) => {
-    const id = req.query.id;
+app.delete('/books/:id', (req, res) => {
+    const id = req.params.id;
     const bookIndex = books.findIndex(book => book.id === id);
     if (bookIndex === -1) {
         return res.status(404).json({ message: 'Book not found' });
